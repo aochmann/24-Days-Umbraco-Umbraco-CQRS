@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <PropertyGroup>
+    <Company>Cogworks</Company>
+    <Authors>$(Company)</Authors>
+    <Copyright>Copyright (c) $(Company) $([System.DateTime]::Now.Year)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <!--<Nullable>enable</Nullable>-->
+    <LangVersion>latest</LangVersion>
+    <NoWarn>1591;1701;1702;8032;NU1701;AD0001;CA1041;CS0311</NoWarn>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Deterministic>true</Deterministic>
+    <BuildInParallel>false</BuildInParallel>
+  </PropertyGroup>
+
+  <!-- Additional files which are consumed by all projects -->
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)linting\stylecop.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)linting\codeanalysis.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)linting\stylecop.json" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)linting\codeanalysis.ruleset" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)linting\.editorconfig" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory).editorconfig" Visible="false" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Release')) == true">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Release')) == false">
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Release')) == true">
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <!-- Package versions for package references across all projects -->
+  <ItemGroup Condition="$(Configuration.StartsWith('Release')) == false">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0" />
+    <PackageReference Include="SmartanAlyzers.ExceptionAnalyzer" Version="1.0.10" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+</Project>

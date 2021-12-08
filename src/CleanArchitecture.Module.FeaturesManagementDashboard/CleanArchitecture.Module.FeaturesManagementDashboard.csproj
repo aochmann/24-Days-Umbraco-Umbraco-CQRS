@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <None Remove="App_Plugins\FeatureManagementDashboard\dashboard.controller.js" />
+    <None Remove="App_Plugins\FeatureManagementDashboard\dashboard.html" />
+    <None Remove="App_Plugins\FeatureManagementDashboard\Lang\en-US.xml" />
+    <None Remove="App_Plugins\FeatureManagementDashboard\package.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="System.Linq.Async" Version="5.0.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="9.0.1" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.Shared\CleanArchitecture.Shared.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Module.FeaturesManagementDashboard.Application\CleanArchitecture.Module.FeaturesManagementDashboard.Application.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Module.FeaturesManagementDashboard.Domain\CleanArchitecture.Module.FeaturesManagementDashboard.Domain.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Module.FeaturesManagementDashboard.Infrastructure\CleanArchitecture.Module.FeaturesManagementDashboard.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Content Include="App_Plugins\FeatureManagementDashboard\**\*.*">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+
+    <None Include="build\**\*.*">
+      <Pack>False</Pack>
+      <PackagePath>buildTransitive</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="App_Plugins\FeatureManagementDashboard\dashboard.controller.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="App_Plugins\FeatureManagementDashboard\dashboard.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="App_Plugins\FeatureManagementDashboard\dashboard.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="App_Plugins\FeatureManagementDashboard\package.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="App_Plugins\FeatureManagementDashboard\package.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

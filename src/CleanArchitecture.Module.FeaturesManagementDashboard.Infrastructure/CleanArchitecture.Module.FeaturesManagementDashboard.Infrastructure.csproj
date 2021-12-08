@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.Module.FeaturesManagementDashboard.Application\CleanArchitecture.Module.FeaturesManagementDashboard.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lamar" Version="6.0.0" />
+    <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="DapperExtensions" Version="1.7.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.FeatureManagement" Version="2.4.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="9.0.1" />
+    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>CleanArchitecture.Module.FeaturesManagementDashboard</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>

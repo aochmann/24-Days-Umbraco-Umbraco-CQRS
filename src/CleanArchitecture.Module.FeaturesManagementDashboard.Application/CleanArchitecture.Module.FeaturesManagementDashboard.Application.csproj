@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Lamar" Version="6.0.0" />
+    <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="9.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.SharedAbstractions\CleanArchitecture.SharedAbstractions.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Module.FeaturesManagementDashboard.Domain\CleanArchitecture.Module.FeaturesManagementDashboard.Domain.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Shared\CleanArchitecture.Shared.csproj" />
+  </ItemGroup>
+</Project>

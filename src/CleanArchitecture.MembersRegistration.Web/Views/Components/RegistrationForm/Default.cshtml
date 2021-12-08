@@ -1,0 +1,31 @@
+﻿@using CleanArchitecture.MembersRegistration.Web.Controllers.Actions
+@using CleanArchitecture.MembersRegistration.Web.Views.Components.RegistrationForm
+@model RegistrationFormViewModel
+
+@using (Html.BeginUmbracoForm<RegistrationSurfaceController>("Register", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+    </div>
+
+    <br />
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+    </div>
+
+
+    <br />
+    <div>
+        @Html.LabelFor(m => m.PasswordConfirmation, "Confirm Password")
+        @Html.PasswordFor(m => m.PasswordConfirmation, new { placeholder = "Password Confirmation" })
+    </div>
+
+
+    <br />
+    <div>
+    </div>
+    @Html.ValidationSummary()
+    <button name="register" type="submit">Register</button>
+}

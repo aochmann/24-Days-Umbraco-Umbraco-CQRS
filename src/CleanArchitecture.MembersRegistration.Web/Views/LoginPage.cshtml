@@ -1,0 +1,22 @@
+﻿@using CleanArchitecture.MembersRegistration.Web.Views.Components.Authentication
+@using Umbraco.Cms.Core.Security
+@using ContentModels = CleanArchitecture.MembersRegistration.Domain.CmsModels.Generated;
+@using CleanArchitecture.MembersRegistration.Web.Views.Components.MemberDetails;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.LoginPage>
+@inject IMemberManager _memberManager;
+@{
+    Layout = null;
+}
+
+<h5>@Model.Name</h5>
+
+<hr />
+
+@if (_memberManager.IsLoggedIn())
+{
+    @(await Component.InvokeAsync<MemberDetailsViewComponent>())
+}
+else
+{
+    @(await Component.InvokeAsync<AuthenticationViewComponent>())
+}

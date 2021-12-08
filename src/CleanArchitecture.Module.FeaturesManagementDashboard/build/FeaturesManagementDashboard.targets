@@ -1,0 +1,25 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <FeaturesManagementDashboardContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\FeatureManagementDashboard\**\*.*</FeaturesManagementDashboardContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyFeaturesManagementDashboardAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <FeaturesManagementDashboardContentFiles Include="$(FeaturesManagementDashboardContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying FeaturesManagementDashboard files: $(FeaturesManagementDashboardContentFilesPath) - #@(FeaturesManagementDashboardContentFiles->Count()) files"  Importance="high" />
+    <Copy
+        SourceFiles="@(FeaturesManagementDashboardContentFiles)"
+        DestinationFiles="@(FeaturesManagementDashboardContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\FeatureManagementDashboard\%(RecursiveDir)%(Filename)%(Extension)')"
+        SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearFeaturesManagementDashboardAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <FeaturesManagementDashboardDir Include="$(MSBuildProjectDirectory)\App_Plugins\FeatureManagementDashboard\" />
+    </ItemGroup>
+    <Message Text="Clear old FeaturesManagementDashboard data"  Importance="high" />
+    <RemoveDir Directories="@(FeaturesManagementDashboardDir)" />
+  </Target>
+</Project>

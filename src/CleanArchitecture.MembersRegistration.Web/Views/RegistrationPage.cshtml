@@ -1,0 +1,9 @@
+﻿@using ContentModels = CleanArchitecture.MembersRegistration.Domain.CmsModels.Generated;
+@using CleanArchitecture.MembersRegistration.Web.Views.Components.RegistrationForm
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.RegistrationPage>
+
+
+<h5>@Model.Name</h5>
+<hr />
+
+@(await Component.InvokeAsync<RegistrationFormViewComponent>())

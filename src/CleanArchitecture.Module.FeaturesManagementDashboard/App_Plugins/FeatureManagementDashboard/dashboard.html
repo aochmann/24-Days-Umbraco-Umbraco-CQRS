@@ -1,0 +1,41 @@
+﻿<div ng-controller="Our.Umbraco.FeatureManagementDashboard.Controller as vm">
+    <div>
+        <umb-box>
+            <div slot="header">
+                <umb-box-header title-key="featureManagementDashboard_title"
+                                description-key="featureManagementDashboard_description">
+                </umb-box-header>
+            </div>
+            <div slot="main">
+                <umb-box-content>
+                    <div class="umb-table">
+                        <div class="umb-table-head">
+                            <div class="umb-table-row">
+                                <div class="umb-table-cell">
+                                    <umb-icon icon="icon-settings"></umb-icon>
+                                </div>
+                                <div class="umb-table-cell umb-table__name not-fixed"><localize key="featureManagementDashboard_column_name"></localize></div>
+                                <div class="umb-table-cell"><localize key="featureManagementDashboard_column_status"></localize></div>
+                            </div>
+                        </div>
+                        <div class="umb-table-body">
+                            <div class="umb-table-row" ng-repeat="feature in vm.features">
+                                <div class="umb-table-cell">
+                                    <umb-icon icon="icon-settings-alt"></umb-icon>
+                                </div>
+                                <div class="umb-table-cell umb-table__name not-fixed">{{feature.Name}}</div>
+                                <div class="umb-table-cell">
+                                    <umb-toggle checked="feature.Status"
+                                                on-Click="vm.featureStatusChange(feature)"
+                                                show-labels="false"
+                                                input-id="feature.Id">
+                                    </umb-toggle>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </umb-box-content>
+            </div>
+        </umb-box>
+    </div>
+</div>
